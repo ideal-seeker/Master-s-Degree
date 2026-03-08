@@ -1,5 +1,5 @@
 # Master-s-Degree
-work， Master time， HITSZ
+总结研究生期间的工作
 
 主要内容包括:
 模型预测控制
