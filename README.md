@@ -1,5 +1,6 @@
 # Master-s-Degree
 work， Master time， HITSZ
+
 主要内容包括:
 模型预测控制
 强化学习
