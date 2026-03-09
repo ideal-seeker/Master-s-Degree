@@ -1,0 +1,32 @@
+clear
+clc
+% format rat
+format short
+%%系统参数
+%论文中例一
+A = [2,1;-1,2];
+B = [1,0;0,1];
+tic;
+% 创建MPT模型
+sys = LTISystem('A', A, 'B', B);
+
+X = Polyhedron('lb',[-1,-1],'ub',[1,1]);%初始集合
+U = Polyhedron('lb',[-1,-1],'ub',[1,1]);
+
+% 计算控制不变集
+omiga = sys.invariantSet('X', X,'U',U);
+
+Pre_omiga = sys.reachableSet('X',omiga,'U',U,'N',1,'direction','backward');
+
+vertices = omiga.V;
+%二维画图
+figure(1);
+
+% plot(Pre_omiga,'color','g');
+% hold on
+plot(omiga,'color','r');
+title('Control Invariant Set');
+part1time = toc;
+fprintf('运行时间为:%.4f 秒\n', part1time);
+hold on
+
